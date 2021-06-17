@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날짜 계산프로그램</title>
+    <style>
+        #container{
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+            border: 1px solid blue;
+            border-radius: 50%;
+            background: #eee;
+            text-align: center;
+        }
+        h1{padding-top: 50px;}
+        .accent{color: red; font-size: 1.5em; font-weight: 600;}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>책 읽기</h1>
+        <P><span id="result" class="accent"></span>일 연속으로<br> 책 읽기를 달성했군요.</P>
+        <P>축하합니다.</P>
+    <script>
+        //지나온 날짜(passedTime) = 현재 날짜(today) - 독서를 시작한 날짜("2021-5.27")
+        var today = new Date(); 
+        var firstDay = new Date("2021-05-27");
+
+        var passedTime = today.getTime() - firstDay.getTime();
+        passedTime = Math.round(passedTime/(24*60*60*1000));
+        //1907.1.1.이후 자정 후 시간 - 밀리초로 계산됨
+
+        document.getElementById("result").innerHTML = passedTime;
+        </script>
+    </div>    
+</body>
+</html>
